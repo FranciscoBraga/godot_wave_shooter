@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1h2uunk0nfjf"]
+
+[ext_resource type="Texture2D" uid="uid://w5n47sx1ky7c" path="res://anim/Square.png" id="1_1ceyo"]
+[ext_resource type="Script" path="res://script/projetil.gd" id="2_0pa0n"]
+
+[node name="projetil" type="Sprite2D"]
+modulate = Color(0.188235, 0.623529, 1, 1)
+texture = ExtResource("1_1ceyo")
+script = ExtResource("2_0pa0n")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

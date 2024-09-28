@@ -8,3 +8,9 @@ modulate = Color(0.00227273, 0.276831, 0.980269, 1)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_gqxsn")
 script = ExtResource("2_6hlfs")
+
+[node name="tempo_recarga" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="tempo_recarga" to="." method="_on_tempo_recarga_timeout"]

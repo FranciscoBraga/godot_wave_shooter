@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bophvy4eui2wb"]
+
+[ext_resource type="Texture2D" uid="uid://w5n47sx1ky7c" path="res://anim/Square.png" id="1_gqxsn"]
+[ext_resource type="Script" path="res://script/jogador.gd" id="2_6hlfs"]
+
+[node name="Jogador" type="Sprite2D"]
+modulate = Color(0.00227273, 0.276831, 0.980269, 1)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_gqxsn")
+script = ExtResource("2_6hlfs")

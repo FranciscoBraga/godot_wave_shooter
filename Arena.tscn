@@ -1,10 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2kn428jkj10j"]
+[gd_scene load_steps=5 format=3 uid="uid://c2kn428jkj10j"]
 
 [ext_resource type="Script" path="res://script/arena.gd" id="1_bmwtd"]
 [ext_resource type="PackedScene" uid="uid://bophvy4eui2wb" path="res://jogador.tscn" id="1_e83gs"]
+[ext_resource type="PackedScene" uid="uid://bvk1y1pcaamys" path="res://inimigo.tscn" id="3_r7stc"]
+
+[sub_resource type="Environment" id="Environment_iwdre"]
+background_mode = 3
+glow_enabled = true
+glow_bloom = 0.75
+glow_blend_mode = 0
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_bmwtd")
 
 [node name="Jogador" parent="." instance=ExtResource("1_e83gs")]
 position = Vector2(341, 182)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_iwdre")
+
+[node name="Inimigo" parent="." instance=ExtResource("3_r7stc")]
+position = Vector2(43, 47)

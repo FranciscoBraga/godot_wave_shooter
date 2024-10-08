@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bophvy4eui2wb"]
+[gd_scene load_steps=4 format=3 uid="uid://bophvy4eui2wb"]
 
 [ext_resource type="Texture2D" uid="uid://w5n47sx1ky7c" path="res://anim/Square.png" id="1_gqxsn"]
 [ext_resource type="Script" path="res://script/jogador.gd" id="2_6hlfs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3peas"]
+size = Vector2(16, 16)
 
 [node name="Jogador" type="Sprite2D"]
 modulate = Color(0.00227273, 0.276831, 0.980269, 1)
@@ -13,4 +16,10 @@ script = ExtResource("2_6hlfs")
 wait_time = 0.2
 one_shot = true
 
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="col" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("RectangleShape2D_3peas")
+
 [connection signal="timeout" from="tempo_recarga" to="." method="_on_tempo_recarga_timeout"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

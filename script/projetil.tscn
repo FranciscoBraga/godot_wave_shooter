@@ -8,6 +8,7 @@ size = Vector2(16, 16)
 
 [node name="projetil" type="Sprite2D"]
 modulate = Color(0.188235, 0.623529, 1, 1)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_1ceyo")
 script = ExtResource("2_0pa0n")
 

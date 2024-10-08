@@ -11,7 +11,7 @@ modulate = Color(0.843137, 0.113725, 0.141176, 1)
 texture = ExtResource("1_fc7l3")
 script = ExtResource("2_3t3f7")
 
-[node name="hitBox" type="Area2D" parent="."]
+[node name="hitBox" type="Area2D" parent="." groups=["inimigo"]]
 
 [node name="col" type="CollisionShape2D" parent="hitBox"]
 shape = SubResource("RectangleShape2D_aiwn1")

@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 	global_position += mov *velocidade * delta
 	
 	if hp <= 0 and Global.criacao_no_pai != null :
+		Global.pontos += 1
 		var instacia_particula_sangue = Global.instance_node(particula_sangue,global_position,Global.criacao_no_pai)
 		instacia_particula_sangue.rotation = mov.angle()
 		queue_free()

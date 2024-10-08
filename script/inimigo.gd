@@ -6,6 +6,7 @@ var atordoado = false
 var recuo = 6
 var hp = 3
 
+var particula_sangue = preload("res://particula_sangue.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,11 +22,13 @@ func _process(delta: float) -> void:
 		
 	global_position += mov *velocidade * delta
 	
-	if hp <= 0:
+	if hp <= 0 and Global.criacao_no_pai != null :
+		var instacia_particula_sangue = Global.instance_node(particula_sangue,global_position,Global.criacao_no_pai)
+		instacia_particula_sangue.rotation = mov.angle()
 		queue_free()
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	if area.is_in_group("dano"):
+	if area.is_in_group("dano") and atordoado == false:
 		modulate = Color.WHITE
 		area.get_parent().queue_free()
 		mov = -mov * recuo

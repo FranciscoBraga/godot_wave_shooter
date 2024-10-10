@@ -5,6 +5,7 @@ var inimigo_1 = preload("res://inimigo.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.criacao_no_pai = self
+	Global.pontos = 0
 
 func _exit_tree() -> void:
 	Global.criacao_no_pai =  null

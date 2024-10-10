@@ -12,7 +12,6 @@ var particula_sangue = preload("res://particula_sangue.tscn")
 func _ready() -> void:
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Global.jogador != null and atordoado == false:
@@ -23,6 +22,8 @@ func _process(delta: float) -> void:
 	global_position += mov *velocidade * delta
 	
 	if hp <= 0 and Global.criacao_no_pai != null :
+		if Global.camera != null:
+			Global.camera.tremer_tela(50,0.1)
 		Global.pontos += 1
 		var instacia_particula_sangue = Global.instance_node(particula_sangue,global_position,Global.criacao_no_pai)
 		instacia_particula_sangue.rotation = mov.angle()

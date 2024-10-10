@@ -12,12 +12,16 @@ var morto = false
 func _ready() -> void:
 	Global.jogador = self
 	
+	
 func _enter_tree() -> void:
 	Global.jogador = null
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	mov.x = int(Input.is_action_pressed("direita")) - int(Input.is_action_pressed("esquerda"))
 	mov.y = int(Input.is_action_pressed("baixo")) - int(Input.is_action_pressed("cima"))
+	
+	global_position.x = clamp(global_position.x,24,616)
+	global_position.y = clamp(global_position.y,24,336)
 	
 	if morto == false:
 		global_position += velocidade * mov * delta

@@ -18,3 +18,8 @@ func _on_timer_spawn_inimigo_timeout() -> void:
 		posicao_inimigo = Vector2(randi_range(-160,670),randi_range(-90,360))
 		
 	Global.instance_node(inimigo_1,posicao_inimigo,self)
+
+
+func _on_timer_dificuldade_timeout() -> void:
+	if $timer_spawn_inimigo.wait_time > 0.50:
+		$timer_spawn_inimigo.wait_time -= 0.10

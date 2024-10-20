@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2kn428jkj10j"]
+[gd_scene load_steps=13 format=3 uid="uid://c2kn428jkj10j"]
 
 [ext_resource type="Script" path="res://script/arena.gd" id="1_bmwtd"]
 [ext_resource type="PackedScene" uid="uid://bophvy4eui2wb" path="res://jogador.tscn" id="1_e83gs"]
@@ -6,7 +6,9 @@
 [ext_resource type="FontFile" uid="uid://dlnijan2ily6c" path="res://fonts/ROSEMERO.ttf" id="3_2v7qw"]
 [ext_resource type="PackedScene" uid="uid://43p1c42pt5p4" path="res://inimigo_2.tscn" id="3_u0nlt"]
 [ext_resource type="Script" path="res://script/pontos.gd" id="4_5q1gi"]
+[ext_resource type="PackedScene" uid="uid://djes0vvl2ghjw" path="res://poder_tempo_recarga.tscn" id="4_in6kn"]
 [ext_resource type="Script" path="res://script/camera.gd" id="5_0k8tg"]
+[ext_resource type="PackedScene" uid="uid://cv1kqlbnlgepp" path="res://poder_dano.tscn" id="5_0vx3y"]
 [ext_resource type="Script" path="res://script/record.gd" id="5_3ds7r"]
 
 [sub_resource type="Environment" id="Environment_iwdre"]
@@ -21,6 +23,7 @@ base_font = ExtResource("3_2v7qw")
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_bmwtd")
 inimigos = Array[PackedScene]([ExtResource("2_qesk0"), ExtResource("3_u0nlt")])
+poderes = Array[PackedScene]([ExtResource("4_in6kn"), ExtResource("5_0vx3y")])
 
 [node name="Jogador" parent="." instance=ExtResource("1_e83gs")]
 position = Vector2(341, 182)
@@ -33,6 +36,10 @@ wait_time = 3.0
 autostart = true
 
 [node name="timer_dificuldade" type="Timer" parent="."]
+autostart = true
+
+[node name="timer_spawn_poder" type="Timer" parent="."]
+wait_time = 10.0
 autostart = true
 
 [node name="UI" type="Node2D" parent="."]
@@ -77,4 +84,5 @@ script = ExtResource("5_0k8tg")
 
 [connection signal="timeout" from="timer_spawn_inimigo" to="." method="_on_timer_spawn_inimigo_timeout"]
 [connection signal="timeout" from="timer_dificuldade" to="." method="_on_timer_dificuldade_timeout"]
+[connection signal="timeout" from="timer_spawn_poder" to="." method="_on_timer_spawn_poder_timeout"]
 [connection signal="timeout" from="camera/timer_camera" to="camera" method="_on_timer_camera_timeout"]

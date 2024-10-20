@@ -4,7 +4,7 @@ var mov = Vector2(1,0)
 var velocidade = 250
 var dir_unica = true
 
-
+var dano
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

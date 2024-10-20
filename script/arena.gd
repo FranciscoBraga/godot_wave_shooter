@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var inimigos: Array[PackedScene]
+
+@export var poderes: Array[PackedScene]
  
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,3 +27,10 @@ func _on_timer_spawn_inimigo_timeout() -> void:
 func _on_timer_dificuldade_timeout() -> void:
 	if $timer_spawn_inimigo.wait_time > 0.50:
 		$timer_spawn_inimigo.wait_time -= 0.025
+
+
+func _on_timer_spawn_poder_timeout() -> void:
+	var posicao_poderes = Vector2(randi_range(0,650),randi_range(-90,340))
+		
+	var numero_poderes = round(randi_range(0,inimigos.size() -1))
+	Global.instance_node(poderes[numero_poderes],posicao_poderes,self)

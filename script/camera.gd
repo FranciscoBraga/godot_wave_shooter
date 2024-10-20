@@ -26,6 +26,5 @@ func tremer_tela(intesidade, tempo):
 	$timer_camera.start()
 	iniciar_tremor_camera = true
 	
-
 func _on_timer_camera_timeout() -> void:
 	iniciar_tremor_camera = false

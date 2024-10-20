@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv1kqlbnlgepp"]
+
+[ext_resource type="PackedScene" uid="uid://djes0vvl2ghjw" path="res://poder_tempo_recarga.tscn" id="1_rah8p"]
+
+[node name="poder_dano" instance=ExtResource("1_rah8p")]
+modulate = Color(0.96129, 0.000918527, 0.984944, 1)
+modificador_variavel_jogador = "dano"
+valor_variavel_jogador = 3.0

@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@export var  velocidade: int = 75
+@export var velocidade: int = 75
 
 var mov = Vector2.ZERO
 
@@ -41,7 +41,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 		area.get_parent().queue_free()
 		mov = -mov * recuo
 		atordoado = true
-		hp -= 1
+		hp -= area.get_parent().dano
 		$timer_recuo.start()
 		
 func _on_timer_recuo_timeout() -> void:

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://43p1c42pt5p4"]
+
+[ext_resource type="PackedScene" uid="uid://bvk1y1pcaamys" path="res://inimigo_Base.tscn" id="1_12s3b"]
+
+[node name="Inimigo_2" instance=ExtResource("1_12s3b")]
+modulate = Color(0.823947, 0.607051, 0, 1)
+self_modulate = Color(1, 1, 1, 0.972549)
+velocidade = 120
+hp = 1

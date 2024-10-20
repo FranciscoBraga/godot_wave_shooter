@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 		randi_range(-intesidade_tremor_camera, intesidade_tremor_camera)) * delta
 
 func tremer_tela(intesidade, tempo):
-	zoom = Vector2(1,1) - Vector2(intesidade * 0.02, intesidade * 0.02)
+	zoom = Vector2(1,1) + Vector2(intesidade * 0.02, intesidade * 0.02)
 	intesidade_tremor_camera = intesidade
 	$timer_camera.wait_time = tempo
 	$timer_camera.start()

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhaiumtr46vjk"]
+
+[ext_resource type="PackedScene" uid="uid://bvk1y1pcaamys" path="res://inimigo_Base.tscn" id="1_jb13r"]
+
+[node name="Inimigo_1" instance=ExtResource("1_jb13r")]
+modulate = Color(2.21401e-06, 0.460767, 0.496488, 1)
+
+[node name="col" parent="hitBox" index="0"]
+modulate = Color(1, 1, 1, 1)

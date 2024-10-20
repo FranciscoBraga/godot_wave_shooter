@@ -1,6 +1,6 @@
 extends Node2D
 
-var inimigo_1 = preload("res://inimigo.tscn")
+@export var inimigos: Array[PackedScene]
  
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,9 +17,11 @@ func _on_timer_spawn_inimigo_timeout() -> void:
 	while posicao_inimigo.x < 640 and posicao_inimigo.x > -80 and posicao_inimigo.y < 360 and posicao_inimigo.y > -45:
 		posicao_inimigo = Vector2(randi_range(-160,670),randi_range(-90,360))
 		
-	Global.instance_node(inimigo_1,posicao_inimigo,self)
+	var numero_inimigos = round(randi_range(0,inimigos.size() -1)) 
+	print(numero_inimigos)
+	Global.instance_node(inimigos[numero_inimigos],posicao_inimigo,self)
 
 
 func _on_timer_dificuldade_timeout() -> void:
 	if $timer_spawn_inimigo.wait_time > 0.50:
-		$timer_spawn_inimigo.wait_time -= 0.10
+		$timer_spawn_inimigo.wait_time -= 0.025

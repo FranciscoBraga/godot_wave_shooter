@@ -10,6 +10,8 @@ var atordoado = false
 
 @export var hp: int = 3
 
+@export var pontos = 1
+
 var particula_sangue = preload("res://particula_sangue.tscn")
 
 var cor_atual = modulate
@@ -21,7 +23,7 @@ func efeito_camera_inimigo():
 		sangue_inimigo()
 		
 func sangue_inimigo():
-	Global.pontos += 1
+	Global.pontos += pontos
 	var instacia_particula_sangue = Global.instance_node(particula_sangue,global_position,Global.criacao_no_pai)
 	instacia_particula_sangue.rotation = mov.angle()
 	instacia_particula_sangue.modulate = Color.from_hsv(cor_atual.h,1,0.35)

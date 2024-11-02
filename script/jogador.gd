@@ -1,5 +1,6 @@
 extends Sprite2D
 
+signal  mudar_vidas(vidas_jogador)
 var velocidade = 150
 var mov = Vector2.ZERO
 
@@ -13,10 +14,15 @@ var dano_padrao = dano
 
 var reset_poder = []
 
+var max_vidas = 3
+var vidas = max_vidas
+
 var morto = false
 
 func _ready() -> void:
 	Global.jogador = self
+	connect("mudar_vidas",Callable(get_parent().get_node("UI/Control"),"on_mudar_vidas_jogador"))
+	emit_signal("mudar_vidas",max_vidas)
 	
 func _enter_tree() -> void:
 	Global.jogador = null
@@ -43,6 +49,9 @@ func _on_tempo_recarga_timeout() -> void:
 	
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("inimigo"):
+		vidas -= 1
+		emit_signal("mudar_vidas",vidas)
+	if vidas <= 0:
 		visible = false
 		morto = true
 		await get_tree().create_timer(1).timeout

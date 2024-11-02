@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c2kn428jkj10j"]
+[gd_scene load_steps=15 format=3 uid="uid://c2kn428jkj10j"]
 
 [ext_resource type="Script" path="res://script/arena.gd" id="1_bmwtd"]
 [ext_resource type="PackedScene" uid="uid://bophvy4eui2wb" path="res://jogador.tscn" id="1_e83gs"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://script/camera.gd" id="5_0k8tg"]
 [ext_resource type="PackedScene" uid="uid://cv1kqlbnlgepp" path="res://poder_dano.tscn" id="5_0vx3y"]
 [ext_resource type="Script" path="res://script/record.gd" id="5_3ds7r"]
+[ext_resource type="Script" path="res://script/control.gd" id="7_r46pt"]
+[ext_resource type="Texture2D" uid="uid://w5n47sx1ky7c" path="res://anim/Square.png" id="10_axbly"]
 
 [sub_resource type="Environment" id="Environment_iwdre"]
 background_mode = 3
@@ -50,6 +52,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 360.0
+script = ExtResource("7_r46pt")
 
 [node name="pontos" type="Label" parent="UI/Control"]
 layout_mode = 0
@@ -75,6 +78,14 @@ text = "0
 horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("5_3ds7r")
+
+[node name="vidas" type="TextureRect" parent="UI/Control"]
+modulate = Color(0.00392157, 0.278431, 0.980392, 1)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("10_axbly")
+stretch_mode = 1
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(320, 180)

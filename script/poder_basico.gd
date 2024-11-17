@@ -12,3 +12,4 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		area.get_parent().get_node("tempo_recarga_cooldown").start()
 		area.get_parent().reset_poder.append(name)
 		queue_free()
+		area.get_parent().modulate = Color.GREEN

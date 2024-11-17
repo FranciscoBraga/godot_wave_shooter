@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c2kn428jkj10j"]
+[gd_scene load_steps=16 format=3 uid="uid://c2kn428jkj10j"]
 
 [ext_resource type="Script" path="res://script/arena.gd" id="1_bmwtd"]
 [ext_resource type="PackedScene" uid="uid://bophvy4eui2wb" path="res://jogador.tscn" id="1_e83gs"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://script/record.gd" id="5_3ds7r"]
 [ext_resource type="Script" path="res://script/control.gd" id="7_r46pt"]
 [ext_resource type="Texture2D" uid="uid://w5n47sx1ky7c" path="res://anim/Square.png" id="10_axbly"]
+[ext_resource type="Texture2D" uid="uid://c6l2862lsk1cx" path="res://anim/damage-bg.png" id="12_qb3vo"]
 
 [sub_resource type="Environment" id="Environment_iwdre"]
 background_mode = 3
@@ -82,10 +83,22 @@ script = ExtResource("5_3ds7r")
 [node name="vidas" type="TextureRect" parent="UI/Control"]
 modulate = Color(0.00392157, 0.278431, 0.980392, 1)
 layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 36.0
+offset_bottom = 36.0
 texture = ExtResource("10_axbly")
 stretch_mode = 1
+
+[node name="textura_dano" type="TextureRect" parent="UI/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_qb3vo")
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(320, 180)
